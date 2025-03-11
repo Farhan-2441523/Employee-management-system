@@ -25,19 +25,34 @@ public:
             cin >> id >> name >> dept;
             employees[count++].setData(id, name, dept);
             cout << "Employee added!\n";
-        } else cout << "Employee list full!\n";
+        } else 
+            cout << "Employee list full!\n";
     }
+    
     void displayAll() {
-        if (count == 0) cout << "No employees found!\n";
-        else for (int i = 0; i < count; i++) employees[i].display();
+        if (count == 0) 
+            cout << "No employees found!\n";
+        else 
+            for (int i = 0; i < count; i++) 
+                employees[i].display();
     }
+    
     void searchById() {
-        int id; cout << "Enter ID: "; cin >> id;
-        for (int i = 0; i < count; i++) if (employees[i].id == id) { employees[i].display(); return; }
+        int id; 
+        cout << "Enter ID: "; 
+        cin >> id;
+        for (int i = 0; i < count; i++) 
+            if (employees[i].id == id) {
+                employees[i].display();
+                return;
+            }
         cout << "Employee not found!\n";
     }
+    
     void deleteById() {
-        int id; cout << "Enter ID: "; cin >> id;
+        int id; 
+        cout << "Enter ID: "; 
+        cin >> id;
         for (int i = 0; i < count; i++) {
             if (employees[i].id == id) {
                 employees[i] = employees[--count];
@@ -56,5 +71,28 @@ int main() {
         cout << "\n1. Add\n2. Display\n3. Search\n4. Delete\n5. Exit\nChoice: ";
         cin >> choice;
         switch (choice) {
-            case 1: manager.addEmployee(); break;
-            case
+            case 1: 
+                manager.addEmployee();
+                break;
+            case 2: 
+                manager.displayAll();
+                break;
+            case 3: 
+                manager.searchById();
+                break;
+            case 4: 
+                manager.deleteById();
+                break;
+            case 5: 
+                cout << "Exiting...\n";
+                break;
+            default: 
+                cout << "Invalid choice!\n";
+        }
+    } while (choice != 5);
+    return 0;
+}
+
+
+
+
